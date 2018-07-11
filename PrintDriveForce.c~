@@ -1,0 +1,73 @@
+/* Averages the driving force of particels over time */
+
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+#include<sys/stat.h>
+
+int main ()
+{
+  FILE *in;
+  FILE *outv;
+  FILE *outc;
+  FILE *outn;
+  double drive;
+  double trash;
+
+  printf("test1");
+  //open drive data file
+  if ((in = fopen("Pa0", "r")) == NULL)
+    {
+      printf("Input file Pa0 not found \n");
+      exit(-1);
+    }
+
+  if ((outv = fopen("../../velocity_stats.txt", "a")) == NULL)
+    {
+      printf("Output file velocity_stats.txt not found \n");
+      exit(-1);
+    }
+
+  if ((outv = fopen("../../cluster_stats.txt", "a")) == NULL)
+    {
+      printf("Output file cluster_stats.txt not found \n");
+      exit(-1);
+    }
+  
+  if ((outv = fopen("../../nn_stats.txt", "a")) == NULL)
+    {
+      printf("Output file nn_stats.txt not found \n");
+      exit(-1);
+    }
+
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash); 
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,trash);
+  fscanf (in,"%s %lf\n",trash,&drive);
+  
+  fprintf(outv, "%lf ", drive);
+  fprintf(outc, "%lf ", drive);
+  fprintf(outn, "%lf ", drive);
+
+  fclose (in);
+  fclose (outv);
+  fclose (outc);
+  fclose (outn);
+
+  return 0;
+}
+  
